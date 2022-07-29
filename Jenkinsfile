@@ -19,13 +19,7 @@ pipeline {
         stage('Stage three') {
             steps {
                 sh "echo ENV_URL  =  ${ENV_URL}"
-                sh ''' 
-                    echo hai 
-                    echo hello
-                    echo devops
-                    echo cloud 
 
-                '''
                 
             }
         }
