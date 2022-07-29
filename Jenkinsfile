@@ -19,6 +19,7 @@ pipeline {
         stage('Stage three') {
             steps {
                 echo "Hello DevOps"
+                echo
             }
         }
     }
