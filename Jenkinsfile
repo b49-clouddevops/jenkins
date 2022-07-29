@@ -20,7 +20,13 @@ pipeline {
 
         stage('Stage two') {
             steps {
-                echo "Hello world"
+                echo "Hello Cloud "
+            }
+        }
+
+        stage('Stage two') {
+            steps {
+                echo "Hello Cloud "
             }
         }
 
