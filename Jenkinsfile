@@ -20,13 +20,13 @@ pipeline {
 
         stage('Stage two') {
             steps {
-                echo "Hello Cloud "
+                echo "Hello Cloud"
             }
         }
 
-        stage('Stage two') {
+        stage('Stage three') {
             steps {
-                echo "Hello Cloud "
+                echo "Hello DevOps"
             }
         }
 
