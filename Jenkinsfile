@@ -8,3 +8,7 @@ pipeline {
         }
     }
 }
+
+pipeline {
+    agent any 
+}
