@@ -19,6 +19,10 @@ pipeline {
         stage('Stage three') {
             steps {
                 sh "echo ENV_URL  =  ${ENV_URL}"
+                sh ''' 
+
+
+                '''
                 
             }
         }
