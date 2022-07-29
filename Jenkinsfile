@@ -29,6 +29,5 @@ pipeline {
                 echo "Hello DevOps"
             }
         }
-
     }
 }
