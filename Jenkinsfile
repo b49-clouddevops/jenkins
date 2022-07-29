@@ -18,7 +18,7 @@ pipeline {
 
         stage('Stage three') {
             steps {
-                sh ""
+                sh "echo ENCV"
                 
             }
         }
