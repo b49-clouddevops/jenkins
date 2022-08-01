@@ -12,7 +12,9 @@ pipeline {
         SSH_CRED = credentials('SSH-Cenos7')
     }
 
- triggers { cron('H */4 * * 1-5') }
+ triggers { 
+    cron('H */4 * * 1-5') 
+    }
 
     stages {
         stage('Stage one') {
