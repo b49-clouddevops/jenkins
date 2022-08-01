@@ -35,8 +35,7 @@ pipeline {
         stage('Two') {
             // when { environment name: 'CHOICE', value: 'One' }
             when {
-                branch 'production'
-                environment name: 'DEPLOY_TO', value: 'production'
+                branch 'main'
             }
             steps {
                 sh "echo This Stage is executed as this Choice is ONE"
