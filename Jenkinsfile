@@ -41,9 +41,9 @@ pipeline {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
                 }
               }
-            steps {
-                sh "echo "
-            }
+                steps {
+                    sh "echo Running the statge"
+                }
             }
         }
     }
