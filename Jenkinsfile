@@ -38,7 +38,7 @@ pipeline {
                 ok "Yes, we should."
                 submitter "alice,bob"
                 parameters {
-                    string(name: 'PERSON', defaultValue: 'DevOpsLead', description: 'Ensure you check with DevOps Leave?')
+                    string(name: 'PERSON', defaultValue: 'DevOpsLead', description: 'Ensure you check with DevOps Lead?')
                 }
               }
                 steps {
