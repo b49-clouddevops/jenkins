@@ -7,5 +7,4 @@ This is cron scheduler
 
 ```
 cron('H */4 * * 1-5') 
-
-``` 
+```
