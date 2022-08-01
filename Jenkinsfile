@@ -90,7 +90,7 @@ pipeline {
     }
 post {
     aborted {
-        sh "echo clearning workSpace"
+        sh "echo Job was aborted"
     }
- }
+  }
 }
