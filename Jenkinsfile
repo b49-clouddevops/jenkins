@@ -89,12 +89,12 @@ pipeline {
             }
         }
 
-        stage('Four') {
+        stage('Sowmya') {
             steps {
                 sh "sleep 1"
             }
         }
-        
+
     }
 post {
     aborted {
