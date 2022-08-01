@@ -34,7 +34,7 @@ pipeline {
         
         stage('Two') {
             input {
-                message "Are you sure, you would like to contine?"
+                message "Are you sure, you would like to contine? If yes, did you check your DevOps Lead"
                 ok "Yes, we should."
                 submitter "alice,bob"
                 parameters {
