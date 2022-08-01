@@ -68,13 +68,11 @@ pipeline {
                     sh "sleep 3"
                 }
             }
-
             stage('Two') {
                 steps {
                     sh "sleep 4"
                 }
             }
-
             stage('Three') {
                 steps {
                     sh "sleep 5"
@@ -88,13 +86,11 @@ pipeline {
                 sh "sleep 1"
             }
         }
-
         stage('Sowmya') {
             steps {
                 sh "sleep 1"
             }
         }
-
     }
 post {
     aborted {
