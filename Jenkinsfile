@@ -94,7 +94,11 @@ post {
     }
 
     aborted {
-        sh "echo Job was aborted"
+        sh "echo Job Completed Successfully"
+    }
+
+    failure {
+        
     }
   }
 }
