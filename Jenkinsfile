@@ -79,7 +79,7 @@ pipeline {
                 sh "sleep 30"
             }
         }
-        }
+    }
 
         stage('Four') {
             steps {
