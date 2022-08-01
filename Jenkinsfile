@@ -60,5 +60,7 @@
 
 pipeline {
     agent any 
-    stages 
+    stages {
+        stage('One')
+    }
 }
