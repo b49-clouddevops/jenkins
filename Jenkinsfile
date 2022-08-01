@@ -33,7 +33,7 @@ pipeline {
         }
 
         stage('Two') {
-            
+            when { environment name: 'DEPLOY_TO', value: 'production' }
         }
         
         // stage('Two') {
