@@ -16,6 +16,10 @@ pipeline {
          cron('0 11 * * *') 
     }
 
+    tools {
+        maven 'apache-maven-3.0.1' 
+    }
+
     stages {
         stage('Stage One') {
         environment { 
