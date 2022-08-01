@@ -93,7 +93,7 @@ post {
         sh "echo Job was aborted"
     }
 
-    aborted {
+    success {
         sh "echo Job Completed Successfully"
     }
 
