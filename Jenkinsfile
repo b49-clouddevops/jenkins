@@ -57,3 +57,8 @@
 //         //     }
 //         }
 //     }
+
+pipeline {
+    agent any 
+    stages 
+}
