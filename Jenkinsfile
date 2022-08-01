@@ -34,7 +34,7 @@ pipeline {
         
         stage('Two') {
             input {
-                message "Should we continue?"
+                message "Are you sure, you would like to contine?"
                 ok "Yes, we should."
                 submitter "alice,bob"
                 parameters {
