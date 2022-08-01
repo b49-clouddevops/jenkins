@@ -11,6 +11,9 @@ pipeline {
         ENV_URL = 'env.pipeline.com'
         SSH_CRED = credentials('SSH-Cenos7')
     }
+
+ triggers { cron('H */4 * * 1-5') }
+
     stages {
         stage('Stage one') {
             steps {
