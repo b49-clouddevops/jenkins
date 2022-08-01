@@ -89,7 +89,7 @@ pipeline {
         }
     }
 post {
-    always {
+    aborted {
         sh "echo clearning workSpace"
     }
  }
