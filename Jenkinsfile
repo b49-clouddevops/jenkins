@@ -61,6 +61,10 @@
 pipeline {
     agent any 
     stages {
-        stage('One')
+        stage('One') {
+            steps {
+                sh "sleep 10"
+            }
+        }
     }
 }
