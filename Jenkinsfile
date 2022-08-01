@@ -92,5 +92,9 @@ post {
     aborted {
         sh "echo Job was aborted"
     }
+
+    aborted {
+        sh "echo Job was aborted"
+    }
   }
 }
