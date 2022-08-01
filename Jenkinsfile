@@ -98,7 +98,7 @@ post {
     }
 
     failure {
-       clean
+       cleanWs()
     }
   }
 }
