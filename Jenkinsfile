@@ -36,7 +36,7 @@ pipeline {
             input {
                 message "Are you sure, you would like to contine? If yes, did you check your DevOps Lead"
                 ok "Yes, we should."
-                submitter "alice,bob"
+                submitter "alice,bob"  
                 parameters {
                     string(name: 'PERSON', defaultValue: 'DevOpsLead', description: 'Ensure you check with DevOps Lead?')
                 }
