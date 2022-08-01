@@ -34,7 +34,7 @@ pipeline {
 
         stage('Two') {
             // when { environment name: 'CHOICE', value: 'One' }
-            when { not { branch 'master' } }
+            when { not { branch 'main' } }
             steps {
                 sh "echo This Stage is executed as this Choice is ONE"
             }
