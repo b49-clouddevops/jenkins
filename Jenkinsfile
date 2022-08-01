@@ -61,6 +61,7 @@
 pipeline {
     agent any 
     stages {
+        
         parallel {
         stage('One') {
             steps {
