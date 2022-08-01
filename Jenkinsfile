@@ -78,5 +78,11 @@ pipeline {
                 sh "sleep 30"
             }
         }
+
+        stage('One') {
+            steps {
+                sh "sleep 10"
+            }
+        }
     }
 }
