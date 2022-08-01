@@ -30,6 +30,7 @@ pipeline {
                 sh "env"
                 sh "mvn clean"
                 
+                
             }
         }
     }
