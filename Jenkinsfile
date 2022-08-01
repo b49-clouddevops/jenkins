@@ -17,19 +17,7 @@ pipeline {
     }
 
     stages {
-        stage('Stage one') {
-            steps {
-                echo "Hello world"
-            }
-        }
-
-        stage('Stage two') {
-            steps {
-                echo "Hello Cloud"
-            }
-        }
-
-        stage('Stage three') {
+        stage('Stage One') {
         environment { 
           ENV_URL = 'env.stage.com'
             }
