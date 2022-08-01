@@ -17,7 +17,7 @@ pipeline {
     }
 
     tools {
-        maven 'maven-2.0.10' 
+        maven 'maven-3.8.5' 
     }
 
     stages {
