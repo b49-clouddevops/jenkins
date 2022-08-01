@@ -71,20 +71,20 @@ pipeline {
 
             stage('Two') {
                 steps {
-                    sh "sleep 20"
+                    sh "sleep 4"
                 }
             }
 
             stage('Three') {
                 steps {
-                    sh "sleep 30"
+                    sh "sleep 5"
                 }
             }
         }
     }
         stage('Four') {
             steps {
-                sh "sleep 40"
+                sh "sleep 1"
             }
         }
     }
