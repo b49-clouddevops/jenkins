@@ -18,6 +18,7 @@
 
 //     tools {
 //         maven 'maven-3.8.5' 
+nodejs 'nodes-asw'
 //     }
 
 //     stages {
