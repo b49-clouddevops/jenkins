@@ -33,7 +33,7 @@ pipeline {
         }
 
         stage('Two') {
-            when { environment name: 'CHOICE', value: 'One' }
+            // when { environment name: 'CHOICE', value: 'One' }
             steps {
                 sh "echo This Stage is executed as this Choice is ONE"
             }
