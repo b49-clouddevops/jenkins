@@ -33,7 +33,6 @@ pipeline {
         }
         
         stage('Two') {
-            steps {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
