@@ -28,8 +28,8 @@ pipeline {
             steps {
                 sh "echo ENV_URL  =  ${ENV_URL}"
                 sh "env"
-                sh "mvn clean"
-                
+                sh "mvn --version"
+
                 
             }
         }
