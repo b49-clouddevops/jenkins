@@ -98,7 +98,7 @@ post {
     }
 
     failure {
-        sh "echo Job is a failure, plesae check some xyz"
+       clean
     }
   }
 }
