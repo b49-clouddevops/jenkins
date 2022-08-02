@@ -60,7 +60,6 @@
 
 pipeline {
     // agent { label 'java' } 
-    agent any
     stages {
         stage('Parallel Stages') {
             parallel {
