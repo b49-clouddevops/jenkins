@@ -59,13 +59,15 @@
 //     }
 
 pipeline {
-    agent any 
+    // agent { label 'java' } 
+    agent any
     stages {
         stage('Parallel Stages') {
             parallel {
             stage('One') {
                 steps {
                     sh "sleep 3"
+                    sh "curl ifconfig.co"
                 }
             }
             stage('Two') {
@@ -76,7 +78,6 @@ pipeline {
             stage('Three') {
                 steps {
                     sh "sleep 5"
-                    sh "asdfasdf"
                 }
             }
         }
