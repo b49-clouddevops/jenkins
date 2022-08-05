@@ -10,3 +10,6 @@ cron('H */4 * * 1-5')
 ```
 
 Place dry-run effort in Jenkins
+
+
+GitHUB uses Auth Token for Authorization ( Token is a string of encrypted userName and password )
