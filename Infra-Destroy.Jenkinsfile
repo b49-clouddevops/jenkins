@@ -3,7 +3,7 @@ pipeline {
     parameters
          { 
             choice(name: 'ENV', choices: ['dev', 'prod'], description: 'ENV')
-            string(name: 'APP_VERSION', defaultValue: '', description: 'Just give dummy value' : 'Ignore this VPC ALB and DB')     
+            string(name: 'APP_VERSION', defaultValue: '', description: 'Just give dummy value - Ignore this VPC ALB and DB')     
           }
    
     stages {
