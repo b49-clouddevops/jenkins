@@ -55,10 +55,6 @@ pipeline {
                          }
                      }
                 }
-             } // Parallel Stages Completed
-          }   // Stage Completed
-         stage('Backend-2') {
-            parallel {
             stage('Deleting-Cart') {
                 steps {
                     dir('CART') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/cart.git'
@@ -102,6 +98,11 @@ pipeline {
                                 }
                             }
                        }
+             } // Parallel Stages Completed
+          }   // Stage Completed
+      stage('Deleting DB and ALB') {
+      parallel {
+
         stage('Deleting-DB') {
             steps {
             dir('EC2') { git branch: 'main', url:'https://github.com/b49-clouddevops/terraform-databases.git'
@@ -126,11 +127,9 @@ pipeline {
                         }
                     }
                 }
-
               } // Parallel Stages Completed
            }   // Stage Completed
-   
-        
+          
         stage('Deleting-VPC') {   // Network should be the last
             steps {
                 dir('VPC') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/terraform-vpc.git'

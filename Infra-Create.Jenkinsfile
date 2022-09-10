@@ -125,7 +125,7 @@ pipeline {
                           '''
                          }
                      }
-                }
+                  }
               } // Parallel Stages Completed
            }   // Stage Completed
                    stage('Creating-Frontend') {
