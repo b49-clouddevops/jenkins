@@ -13,7 +13,7 @@ pipeline {
                         sh "ls -ltr"
                         sh "export TF_VAR_APP_VERSION=3.0.0"
                         sh "terrafile -f env-${ENV}/Terrafile"
-                        sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars"
+                        sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
                         sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
                         sh "terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
                      }
