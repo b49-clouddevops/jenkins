@@ -1,5 +1,3 @@
-// Here is the order to delete the whole infra in a single shot;
-// Network should be the last component all the time
 pipeline {
     agent any
     parameters
@@ -102,6 +100,12 @@ pipeline {
                                 }
                             }
                        }
+
+              } // Parallel Stages Completed
+           }   // Stage Completed
+   
+    stage('DB-n-ALB') {
+        parallel {
         stage('Deleting-DB') {
             steps {
             dir('EC2') { git branch: 'main', url:'https://github.com/b49-clouddevops/terraform-databases.git'
@@ -126,12 +130,10 @@ pipeline {
                         }
                     }
                 }
-
-              } // Parallel Stages Completed
-           }   // Stage Completed
-   
+            }   // Closure of parallel stages
+        }   // parallel completed
         
-        stage('Deleting-VPC') {   // Network should be the last
+        stage('Deleting-VPC') {
             steps {
                 dir('VPC') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/terraform-vpc.git'
                         sh "ls -ltr"
