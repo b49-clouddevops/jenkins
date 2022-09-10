@@ -53,11 +53,7 @@ pipeline {
                          }
                      }
                 }
-             } // Parallel Stages Completed
-          }   // Stage Completed
-         stage('Backend-2') {
-            parallel {
-            stage('Deleting-Cart') {
+          stage('Deleting-Cart') {
                 steps {
                     dir('CART') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/cart.git'
                           sh '''
@@ -100,11 +96,10 @@ pipeline {
                                 }
                             }
                        }
+             } // Parallel Stages Completed
+          }   // Stage Completed
 
-              } // Parallel Stages Completed
-           }   // Stage Completed
-   
-    stage('DB-n-ALB') {
+       stage('DB-n-ALB') {
         parallel {
         stage('Deleting-DB') {
             steps {
