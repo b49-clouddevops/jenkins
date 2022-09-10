@@ -69,6 +69,7 @@ pipeline {
                    steps {
                        dir('Catalogue') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/catalogue.git'
                           sh '''
+                            sleep 40
                             cd terraform-mutable
                             export TF_VAR_APP_VERSION=3.0.0
                             terrafile -f env-${ENV}/Terrafile
@@ -83,6 +84,7 @@ pipeline {
                 steps {
                     dir('PAYMENT') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/payment.git'
                           sh '''
+                            sleep 90
                             cd terraform-mutable
                             export TF_VAR_APP_VERSION=3.0.0
                             terrafile -f env-${ENV}/Terrafile
