@@ -4,7 +4,6 @@ pipeline {
          { 
             choice(name: 'ENV', choices: ['dev', 'prod'], description: 'ENV')
             string(name: 'APP_VERSION', defaultValue: '', description: 'Choose App Version To Deploy : Ignore this VPC ALB and DB')
-            choice(name: 'ACTION', choices: ['apply', 'destroy'], description: '"Choose apply or destroy')
      
           }
     stages {
@@ -13,10 +12,10 @@ pipeline {
                 dir('VPC') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/terraform-vpc.git'
                         sh "ls -ltr"
                         sh "export TF_VAR_APP_VERSION=3.0.0"
-                        sh "cp env-${ENV}/Terrafile . ; terrafile"
-                        sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
+                        sh "terrafile -f env-${ENV}/Terrafile"
+                        sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars"
                         sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
-                        sh "terraform ${ACTION} -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
+                        sh "terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
                      }
                  }
             }
@@ -30,8 +29,8 @@ pipeline {
                        sh "terrafile -f env-${ENV}/Terrafile"
                        sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
                        sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
-                       sh "terraform ${ACTION} -auto-approve -var-file=env-${ENV}/${ENV}.tfvars || true"
-                       sh "terraform ${ACTION} -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
+                       sh "terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars || true"
+                       sh "terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
                     }
                }
         }
@@ -42,7 +41,7 @@ pipeline {
                         sh "terrafile -f env-${ENV}/Terrafile"
                         sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
                         sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
-                        sh "terraform ${ACTION} -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
+                        sh "terraform apply -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
                      }
                  }
             }
@@ -60,7 +59,7 @@ pipeline {
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform plan -var-file=env-${ENV}/${ENV}.tfvars
-                            terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
+                            terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
                           '''
                             }
                         }
@@ -75,7 +74,7 @@ pipeline {
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform plan -var-file=env-${ENV}/${ENV}.tfvars
-                            terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
+                            terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
                           '''
                             }
                         }
@@ -90,7 +89,7 @@ pipeline {
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform plan -var-file=env-${ENV}/${ENV}.tfvars
-                            terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
+                            terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
                           '''
                          }
                      }
@@ -108,7 +107,7 @@ pipeline {
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform plan -var-file=env-${ENV}/${ENV}.tfvars
-                            terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
+                            terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
                           '''
                          }
                      }
@@ -122,7 +121,7 @@ pipeline {
                             terrafile -f env-${ENV}/Terrafile
                             terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform plan -var-file=env-${ENV}/${ENV}.tfvars
-                            terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
+                            terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
                           '''
                          }
                      }
@@ -139,7 +138,7 @@ pipeline {
                                 terrafile -f env-${ENV}/Terrafile
                                 terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                                 terraform plan -var-file=env-${ENV}/${ENV}.tfvars
-                                terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
+                                terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve
                               '''
                                 }
                             }
