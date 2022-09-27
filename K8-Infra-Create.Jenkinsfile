@@ -36,13 +36,15 @@ pipeline {
         }
         stage('Creating-EKS') {
             steps {
-                dir('VPC') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/kubernetes.git'
-                        sh "ls -ltr"
-                        sh "cd eks/"
-                        sh "make create"
-                        sh "aws eks update-kubeconfig  --name ${ENV}-eks-cluster"
-                        sh "kubectl get nodes"
+                dir('EKS') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/kubernetes.git'
 
+                        sh ''' 
+                            cd eks 
+                            ls -ltr 
+                            make create
+                            aws eks update-kubeconfig  --name dev-eks-cluster
+                            kubectl get nodes
+                        ''' 
                      }
                  }
             }
