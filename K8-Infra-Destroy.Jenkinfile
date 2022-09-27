@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+    parameters
+         { 
+            choice(name: 'ENV', choices: ['dev', 'prod'], description: 'ENV')
+            string(name: 'APP_VERSION', defaultValue: '', description: 'Just give dummy value - Ignore this VPC ALB and DB')     
+          }
+   
+    stages {
+      stage('Deleting DB and EKS') {
+      parallel {
+
+        stage('Deleting-DB') {
+            steps {
+            dir('EC2') { git branch: 'main', url:'https://github.com/b49-clouddevops/terraform-databases.git'
+                       sh "ls -ltr"
+                       sh "export TF_VAR_APP_VERSION=3.0.0"
+                       sh "terrafile -f env-${ENV}/Terrafile"
+                       sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
+                       sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
+                       sh "terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars || true"
+                       sh "terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
+                    }
+               }
+        }
+        stage('Deleting-EKS') {
+            steps {
+                dir('VPC') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/kubernetes.git'
+                        sh "cd eks"
+                        sh "make destroy"
+
+                        }
+                    }
+                }
+              } // Parallel Stages Completed
+           }   // Stage Completed
+          
+        stage('Deleting-VPC') {   // Network should be the last
+            steps {
+                dir('VPC') {  git branch: 'main', url: 'https://github.com/b49-clouddevops/terraform-vpc.git'
+                        sh "ls -ltr"
+                        sh "export TF_VAR_APP_VERSION=3.0.0"
+                        sh "terrafile -f env-${ENV}/Terrafile"
+                        sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure"
+                        sh "terraform plan -var-file=env-${ENV}/${ENV}.tfvars"
+                        sh "terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars"
+                     }
+                 }
+            }       
+        }
+    }
